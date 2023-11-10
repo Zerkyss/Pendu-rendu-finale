@@ -1,0 +1,105 @@
+﻿<Window x:Class="WpfApp3_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Grid Grid.Row="0" x:Name="Grid_Titre"/>
+        <Label Content="Jeu du Pendu" HorizontalContentAlignment="Center" FontSize="24" Background="#FF8A0101" Margin="10" />
+        <TextBlock Name="Tentatives_Restantes" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="550,30,0,0" FontSize="18" />
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" FontSize="18" Text="Devinez le mot en 6 tentatives !" />
+
+        <Grid Grid.Row="1" x:Name="Grid_Milieu">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" x:Name="Grid_Alphabelt" Background="#FF8A0101" Margin="10,10,10,10" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Tan"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                </Grid.Resources>
+                <!--Grille 0-->
+                <Button Grid.Row="0" Grid.Column="0" Name="A" Content="A" Click="Bouton_Click"  />
+                <Button Grid.Row="0" Grid.Column="1" Name="B" Content="B" Click="Bouton_Click" />
+                <Button Grid.Row="0" Grid.Column="2" Name="C" Content="C" Click="Bouton_Click" />
+                <Button Grid.Row="0" Grid.Column="3" Name="D" Content="D" Click="Bouton_Click" />
+                <Button Grid.Row="0" Grid.Column="4" Name="E" Content="E" Click="Bouton_Click" />
+                <!--Grille 1-->
+                <Button Grid.Row="1" Grid.Column="0" Name="F" Content="F" Click="Bouton_Click" />
+                <Button Grid.Row="1" Grid.Column="1" Name="G" Content="G" Click="Bouton_Click" />
+                <Button Grid.Row="1" Grid.Column="2" Name="H" Content="H" Click="Bouton_Click" />
+                <Button Grid.Row="1" Grid.Column="3" Name="I" Content="I" Click="Bouton_Click" />
+                <Button Grid.Row="1" Grid.Column="4" Name="J" Content="J" Click="Bouton_Click" />
+                <!--Grille 2-->
+                <Button Grid.Row="2" Grid.Column="0" Name="K" Content="K" Click="Bouton_Click" />
+                <Button Grid.Row="2" Grid.Column="1" Name="L" Content="L" Click="Bouton_Click" />
+                <Button Grid.Row="2" Grid.Column="2" Name="M" Content="M" Click="Bouton_Click" />
+                <Button Grid.Row="2" Grid.Column="3" Name="N" Content="N" Click="Bouton_Click"  />
+                <Button Grid.Row="2" Grid.Column="4" Name="O" Content="O" Click="Bouton_Click" />
+                <!--Grille 3-->
+                <Button Grid.Row="3" Grid.Column="0" Name="P" Content="P" Click="Bouton_Click" />
+                <Button Grid.Row="3" Grid.Column="1" Name="Q" Content="Q" Click="Bouton_Click" />
+                <Button Grid.Row="3" Grid.Column="2" Name="R" Content="R" Click="Bouton_Click"  />
+                <Button Grid.Row="3" Grid.Column="3" Name="S" Content="S" Click="Bouton_Click"  />
+                <Button Grid.Row="3" Grid.Column="4" Name="T" Content="T" Click="Bouton_Click" />
+                <!--Grille 4-->
+                <Button Grid.Row="4" Grid.Column="0" Name="U" Content="U" Click="Bouton_Click" />
+                <Button Grid.Row="4" Grid.Column="1" Name="V" Content="V" Click="Bouton_Click" />
+                <Button Grid.Row="4" Grid.Column="2" Name="W" Content="W" Click="Bouton_Click" />
+                <Button Grid.Row="4" Grid.Column="3" Name="X" Content="X" Click="Bouton_Click" />
+                <Button Grid.Row="4" Grid.Column="4" Name="Y" Content="Y" Click="Bouton_Click" />
+                <!--Grille 5-->
+                <Button Grid.Row="5" Grid.Column="0" Name="Z" Content="Z" Click="Bouton_Click"  />
+            </Grid>
+            <Grid Grid.Column="1" x:Name="Grid_Pendu">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/pendu fond 2.png" />
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+
+                    <Button Name="Bouton_Recommencer" Grid.Column="1" Margin="0,0,10,0" Content="Recommencer" Click="BoutonRecommencer_Click" Visibility="Hidden"  />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" x:Name="Grid_Mots_Trouver">
+            <Label Content="Mot à trouver" HorizontalContentAlignment="Center" FontSize="24" Background="#FF8A0101" Margin="10"/>
+            <TextBox Name="Lettre_Saisie" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="900,30,0,0" Width="50" />
+            <TextBlock Name="Mot_Adeviner" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,40,0,0" FontSize="24" />
+            <TextBlock Name="Resultat_Jeu" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,45,0,0" Width="350" FontSize="20" />
+            <TextBlock Name="Lettres_Incorrectes" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,450,0" FontSize="20" />
+        </Grid>
+    </Grid>
+</Window>
